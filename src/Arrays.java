@@ -45,7 +45,7 @@ public class Arrays {
     }
 
     public int[] random() {
-        System.out.print("Введите количество элементов массива: ");
+        System.out.print("Введите количество элементов рандомного заполняемого массива: ");
         int n = in.nextInt();
         int[] array = new int[n];
         final Random random = new Random();

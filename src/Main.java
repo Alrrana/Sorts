@@ -11,10 +11,18 @@ public class Main {
         example.print(first);
         example.print(second);
 
-        sortHelper.QuickSort(first);
-        sortHelper.QuickSort(second);
+//        sortHelper.QuickSort(first);
+//        sortHelper.QuickSort(second);
+//
+//        System.out.print("Отсортированные массивы(Метод QuickSort): ");
+//
+//        example.print(first);
+//        example.print(second);
 
-        System.out.print("Отсортированные массивы(Метод QuickSort): ");
+        sortHelper.MergeSort(first);
+        sortHelper.MergeSort(second);
+
+        System.out.print("Отсортированные массивы(Метод MergeSort): ");
 
         example.print(first);
         example.print(second);
