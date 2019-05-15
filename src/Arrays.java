@@ -10,7 +10,7 @@ public class Arrays {
         System.out.print("Введите количество элементов массива: ");
         int n = in.nextInt();
         int[] array = new int[n];
-        for (int i = 0; i < n; i++) {
+        for (int i = 0;i < n; i++) {
             System.out.print("Введите элемент массива: ");
             array[i] = in.nextInt();
         }
@@ -62,5 +62,13 @@ public class Arrays {
             System.out.print(a[i] + " ");
         }
         System.out.println();
+    }
+
+    public int[] copy(int[]a){
+        int[] array = new int[a.length];
+        for (int i = 0; i < a.length; i++) {
+            array[i] = a[i];
+        }
+        return  array;
     }
 }

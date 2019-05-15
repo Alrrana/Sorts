@@ -1,31 +1,33 @@
 public class Main {
 
     public static void main(String[] args) {
-        Arrays example = new Arrays();
+        Arrays arrayHelper = new Arrays();
         Sorts sortHelper = new Sorts();
-        int[] first = example.random();
-        int[] second = example.CreateStandart();
-
-        System.out.print("Введенные массивы: ");
-
-        example.print(first);
-        example.print(second);
-
-//        sortHelper.QuickSort(first);
-//        sortHelper.QuickSort(second);
+        int[] second = arrayHelper.random();
+//        int[] second = arrayHelper.CreateStandart();
 //
-//        System.out.print("Отсортированные массивы(Метод QuickSort): ");
-//
-//        example.print(first);
-//        example.print(second);
+        System.out.println("Введенный массив: ");
 
-        sortHelper.MergeSort(first);
-        sortHelper.MergeSort(second);
+        arrayHelper.print(second);
+
+        int[] third = arrayHelper.copy(second);
+        int[] first = arrayHelper.copy(second);
+
+
+        sortHelper.QuickSort(first);
+        sortHelper.Merge(second);
+        sortHelper.InsertionSortClassic(third);
+        System.out.println("\nОтсортированные массивы(Метод QuickSort): ");
+        arrayHelper.print(first);
+
 
         System.out.print("Отсортированные массивы(Метод MergeSort): ");
+        arrayHelper.print(second);
 
-        example.print(first);
-        example.print(second);
+
+        System.out.print("\nОтсортированные массивы(Метод InsertionSort): ");
+
+        arrayHelper.print(third);
     }
 
 }
