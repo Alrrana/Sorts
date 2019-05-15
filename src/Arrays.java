@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Arrays {
     Scanner in = new Scanner(System.in);
@@ -10,9 +7,14 @@ public class Arrays {
         System.out.print("Введите количество элементов массива: ");
         int n = in.nextInt();
         int[] array = new int[n];
-        for (int i = 0;i < n; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.print("Введите элемент массива: ");
-            array[i] = in.nextInt();
+            try {
+                array[i] = in.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.print("Некорректный ввод! Попробуйте ещё раз");
+                i--;
+            }
         }
         return array;
     }
@@ -46,7 +48,15 @@ public class Arrays {
 
     public int[] random() {
         System.out.print("Введите количество элементов рандомного заполняемого массива: ");
-        int n = in.nextInt();
+        int n = 0;
+        while (!in.hasNextInt()) {
+            try {
+                System.out.print("\nНекорректный ввод! Попробуйте ещё раз");
+                n = in.nextInt();
+            } catch (InputMismatchException e) {
+                in.nextLine();
+            }
+        }
         int[] array = new int[n];
         final Random random = new Random();
         for (int i = 0; i < n; i++) {
@@ -64,11 +74,11 @@ public class Arrays {
         System.out.println();
     }
 
-    public int[] copy(int[]a){
+    public int[] copy(int[] a) {
         int[] array = new int[a.length];
         for (int i = 0; i < a.length; i++) {
             array[i] = a[i];
         }
-        return  array;
+        return array;
     }
 }
