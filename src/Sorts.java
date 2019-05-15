@@ -29,12 +29,14 @@ public class Sorts {
     }
 
     public void MergeSort(int[]a){
-
+        int startIndex = 0;
+        int endIndex = a.length - 1;
+        MergeSortBody(startIndex, endIndex, a);
     }
 
     private void MergeSortBody(int startIndex, int endIndex, int[] a){
         if (startIndex >= endIndex)
             return;
-        
+
     }
 }

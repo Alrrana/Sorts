@@ -5,12 +5,26 @@ import java.util.Scanner;
 
 public class Arrays {
 
+    public int[] CreateStandart() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Введите количество элементов массива: ");
+        int n = in.nextInt();
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("Input a number: ");
+            array[i] = in.nextInt();
+        }
+        in.close();
+        return array;
+    }
+
     public int[] CreateStandart(int n) {
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
             Scanner in = new Scanner(System.in);
             System.out.print("Input a number: ");
             array[i] = in.nextInt();
+            in.close();
         }
         return array;
     }
@@ -21,11 +35,12 @@ public class Arrays {
             Scanner in = new Scanner(System.in);
             System.out.print("Input a number: ");
             array.add(in.nextInt());
+            in.close();
         }
         return array;
     }
 
-    public int[] random (int n) {
+    public int[] random(int n) {
         int[] array = new int[n];
         final Random random = new Random();
         for (int i = 0; i < n; i++) {
@@ -33,11 +48,12 @@ public class Arrays {
         }
         return array;
     }
-     public void print(int[] a){
-         System.out.println("Вывод массива: ");
-         for (int i = 0; i < a.length; i++){
-             System.out.print(a[i]);
-         }
-         System.out.println();
-     }
+
+    public void print(int[] a) {
+        System.out.println("Вывод массива: ");
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i]);
+        }
+        System.out.println();
+    }
 }
