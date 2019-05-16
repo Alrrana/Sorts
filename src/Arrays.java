@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Arrays {
     Scanner in = new Scanner(System.in);
@@ -49,13 +51,23 @@ public class Arrays {
     public int[] random() {
         System.out.print("Введите количество элементов рандомного заполняемого массива: ");
         int n = 0;
+        Pattern pattern=Pattern.compile("^\\s?[0-9]+\\\n?$");
+        Matcher matcher;
+        String str;
         while (n <= 0) {
-            if(in.hasNext("^\\s?[0-9]+$")){
-                n=in.nextInt();
-            } else{
-                System.out.print("Введено не число, попробуйте ещё раз \n");
-                String str = in.nextLine();
+            str = in.nextLine();
+            matcher = pattern.matcher(str);
+            if(matcher.matches()){
+                n=Integer.valueOf(str);
+            }else{
+                System.out.print("Введено не число или отрицательное число, попробуйте ещё раз \n");
             }
+//            if(in.hasNext("^\\s?[0-9]+\\\n?$")){
+//                n=in.nextInt();
+//            } else{
+//                System.out.print("Введено не число, попробуйте ещё раз \n");
+//                String str = in.nextLine();
+//            }
 //            if (!in.hasNextInt()) {
 //                System.out.print("Введено не число, попробуйте ещё раз\n ");
 //                String str = in.nextLine();
