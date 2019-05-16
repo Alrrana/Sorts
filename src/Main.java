@@ -3,8 +3,8 @@ public class Main {
     public static void main(String[] args) {
         Arrays arrayHelper = new Arrays();
         Sorts sortHelper = new Sorts();
-        int[] second = arrayHelper.random();
-//        int[] second = arrayHelper.CreateStandart();
+//        int[] second = arrayHelper.random();
+        int[] second = arrayHelper.CreateStandart();
 //
         System.out.println("Введенный массив: ");
 

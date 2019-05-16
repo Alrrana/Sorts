@@ -5,18 +5,49 @@ import java.util.regex.Pattern;
 public class Arrays {
     Scanner in = new Scanner(System.in);
 
+    private int parser() {
+        Pattern pattern = Pattern.compile("^[0-9]+?$");
+        Matcher matcher;
+        int n = 0;
+        String str;
+        while (n <= 0) {
+            str = in.nextLine();
+            matcher = pattern.matcher(str);
+            if (matcher.matches()) {
+                n = Integer.valueOf(str);
+            } else {
+                System.out.print("Введено не число или отрицательное число, попробуйте ещё раз \n");
+            }
+        }
+        return n;
+    }
+
+    private int parserNegative() {
+        Pattern pattern = Pattern.compile("^-?[0-9]+?$");
+        Matcher matcher;
+        int n = 0;
+        boolean flag = false;
+        String str;
+        while (!flag) {
+            str = in.nextLine();
+            matcher = pattern.matcher(str);
+            if (matcher.matches()) {
+                n = Integer.valueOf(str);
+                flag = true;
+            } else {
+                System.out.print("Введено не число , попробуйте ещё раз \n");
+            }
+        }
+        return n;
+    }
+
     public int[] CreateStandart() {
         System.out.print("Введите количество элементов массива: ");
-        int n = in.nextInt();
+        int n = parser();
         int[] array = new int[n];
         for (int i = 0; i < n; i++) {
             System.out.print("Введите элемент массива: ");
-            try {
-                array[i] = in.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.print("Некорректный ввод! Попробуйте ещё раз");
-                i--;
-            }
+           array[i]=parserNegative();
         }
         return array;
     }
@@ -32,8 +63,9 @@ public class Arrays {
 
     public ArrayList<Integer> CreateArList(int n) {
         ArrayList<Integer> array = new ArrayList<>();
+        int temp = 0;
         for (int i = 0; i < n; i++) {
-            System.out.print("Введите элемент массива: ");
+
             array.add(in.nextInt());
         }
         return array;
@@ -50,18 +82,8 @@ public class Arrays {
 
     public int[] random() {
         System.out.print("Введите количество элементов рандомного заполняемого массива: ");
-        int n = 0;
-        Pattern pattern=Pattern.compile("^\\s?[0-9]+\\\n?$");
-        Matcher matcher;
-        String str;
-        while (n <= 0) {
-            str = in.nextLine();
-            matcher = pattern.matcher(str);
-            if(matcher.matches()){
-                n=Integer.valueOf(str);
-            }else{
-                System.out.print("Введено не число или отрицательное число, попробуйте ещё раз \n");
-            }
+        int n = parser();
+
 //            if(in.hasNext("^\\s?[0-9]+\\\n?$")){
 //                n=in.nextInt();
 //            } else{
@@ -80,7 +102,6 @@ public class Arrays {
 //            }
 
 
-
 //            if (in.hasNextInt()) {
 //                if(in.nextInt()>1){
 //                    n = in.nextInt();
@@ -89,7 +110,7 @@ public class Arrays {
 //                System.out.print("Неверный ввод, попробуйте ещё раз\n ");
 //                String str = in.nextLine();
 //            }
-        }
+
 
         int[] array = new int[n];
         final Random random = new Random();
