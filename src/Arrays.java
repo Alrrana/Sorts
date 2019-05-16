@@ -37,26 +37,48 @@ public class Arrays {
         return array;
     }
 
-    public int[] random(int n) {
-        int[] array = new int[n];
-        final Random random = new Random();
-        for (int i = 0; i < n; i++) {
-            array[i] = random.nextInt(100);
-        }
-        return array;
-    }
+//    public int[] random(int n) {
+//        int[] array = new int[n];
+//        final Random random = new Random();
+//        for (int i = 0; i < n; i++) {
+//            array[i] = random.nextInt(100);
+//        }
+//        return array;
+//    }
 
     public int[] random() {
         System.out.print("Введите количество элементов рандомного заполняемого массива: ");
         int n = 0;
-        while (!in.hasNextInt()) {
-            try {
-                System.out.print("\nНекорректный ввод! Попробуйте ещё раз");
-                n = in.nextInt();
-            } catch (InputMismatchException e) {
-                in.nextLine();
+        while (n <= 0) {
+            if(in.hasNext("^\\s?[0-9]+$")){
+                n=in.nextInt();
+            } else{
+                System.out.print("Введено не число, попробуйте ещё раз \n");
+                String str = in.nextLine();
             }
+//            if (!in.hasNextInt()) {
+//                System.out.print("Введено не число, попробуйте ещё раз\n ");
+//                String str = in.nextLine();
+//            } else {
+//                n = in.nextInt();
+//                if (n < 1) {
+//                    System.out.print("Введенное число меньше 1 и не может быть длинной массива, попробуйте ещё раз\n ");
+//                    n = 0;
+//                }
+//            }
+
+
+
+//            if (in.hasNextInt()) {
+//                if(in.nextInt()>1){
+//                    n = in.nextInt();
+//                }
+//            } else {
+//                System.out.print("Неверный ввод, попробуйте ещё раз\n ");
+//                String str = in.nextLine();
+//            }
         }
+
         int[] array = new int[n];
         final Random random = new Random();
         for (int i = 0; i < n; i++) {
