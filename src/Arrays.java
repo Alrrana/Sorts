@@ -23,7 +23,7 @@ public class Arrays {
     }
 
     private int parserNegative() {
-        Pattern pattern = Pattern.compile("^-?[0-9]+?$");
+        Pattern pattern = Pattern.compile("^(-|\\+)?[0-9]+?$");
         Matcher matcher;
         int n = 0;
         boolean flag = false;
