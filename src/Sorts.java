@@ -136,6 +136,8 @@ public class Sorts {
                 exchange += 3;
             }
         }
+
+
         System.out.print("\nInsertSort(Classic): \n   Количество сравнений: " + comparisons + "\n   Количество обменов(действий): " + exchange + "\n   Количество обменов(обменов): " + exchange / 3);
 
     }

@@ -6,7 +6,7 @@ public class Arrays {
     Scanner in = new Scanner(System.in);
 
     private int parser() {
-        Pattern pattern = Pattern.compile("^[0-9]+?$");
+        Pattern pattern = Pattern.compile("^\\+?[0-9]+?$");
         Matcher matcher;
         int n = 0;
         String str;
