@@ -1,35 +1,30 @@
 import java.util.Random;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Potok extends Thread {
     Random rnd = new Random();
 
-    public Potok(String name) {
-        super(name);
-    }
 
-    public void f() {
-        start();
-        try {
-            wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        try {
-            sleep(rnd.nextInt(2000));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        notify();
+    ReentrantLock locker;
+    Potok(ReentrantLock locker){
+        this.locker = locker;
     }
 
     @Override
     public void run() {
+        locker.lock();
+        try{
 
-        try {
-            sleep(rnd.nextInt(2000));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Начал выполняться "+this.getName()+"-ий поток");
+            Thread.sleep(1000);
+            System.out.println("Закончил выполняться  "+this.getName()+"-й поток\n");
         }
-        System.out.println(this.getName());
+        catch(InterruptedException e){
+            System.out.println(e.getMessage());
+        }
+        finally{
+            locker.unlock(); // снимаем блокировку
+        }
+
     }
 }
